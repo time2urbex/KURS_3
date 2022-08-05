@@ -41,15 +41,21 @@
             <span class="item__username">Johnny</span>
           </a>
         </div>
+
         <a href="/post.html" class="item__post-link">
           <img src="img/post1.jpg" alt="" width="348" class="item__post-img">
         </a>
-        <p class="item__descr">Текст описания коротки...</p>
+        <p class="item__descr">{{ post.content }} </p>
+        <!-- ЗДЕСЬ НУЖНО ОГРАНИЧИТЬ 50 СИМВОЛАМИ -->
         <div class="item__post-info">
           <div class="item__counter">
-            <img src="img/eye.png" alt="" class="item__counter-icon" width="26">
-            <span class="item__counter-text">212</span>
+            <img src="{{ post.pic }}" alt="" class="item__counter-icon" width="26">
+            <span class="item__counter-text">{{ len(post.content) }}</span>
+            <span class="item__counter-text">{{ len(post.comments) }}</span>
+            <!-- Кол- во символов поста и комментов -->
+
           </div>
+
         </div>
         <div class="item__post-bottom">
           <a href="/post.html" class="item__btn-more">Подробнее</a>

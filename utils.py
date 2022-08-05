@@ -1,7 +1,5 @@
 # Прежде, чем приступать к написанию Flask-приложения, полезно разработать функции, для работы с данными и сложить их в отдельном файле, например, `utils.py.` Например:
 
-# `get_posts_all()` – возвращает посты
-
 import json
 
 
@@ -11,6 +9,8 @@ import json
 def get_posts_all() -> list[dict]:
     with open('./data/posts.json', r, encoding='utf-8') as posts_file:
         return json.load(posts_file)
+
+# Загружаем комменты из json
 
 
 def get_comments_all() -> list[dict]:
@@ -25,18 +25,16 @@ def get_posts_by_user(user_name: str) -> list[dict]:
     for post in get_posts_all():
         if user_name.lower() in post['poster_name'].lower():
             posts_result.append(post)
+            # assert ValueError  - проверка если такого пользователя нет и пустой список, если у пользователя нет постов.
     return posts_result
 
-
-# ошибку `ValueError` если такого пользователя нет и пустой список, если у пользователя нет постов.
-# `get_comments_by_post_id(post_id)` – возвращает комментарии определенного поста. Функция должна вызывать
-# ошибку `ValueError` если такого поста нет и пустой список, если у поста нет комментов.
 
 def get_comments_by_post_id(post_id: str) -> list[dict]:
     comments_result = []
     for comments in get_comments_all():
         if post_id.lower() in post['post_id'].lower():
             comments_result.append(comments)
+            # Assert если такого поста нет и пустой список, если у поста нет комментов.
     return comments_result
 
 
@@ -55,7 +53,7 @@ def search_for_posts(query: str) -> list[dict]:
 def get_post_by_pk(pk: str) -> list[dict]:
     id_search_result = []
     for posts in get_posts_all():
-        if username.lower() in posts['poster_name'].lower():
+        if post_id.lower() in post['post_id'].lower():
             id_search_result.append(posts)
     return id_search_result
 
