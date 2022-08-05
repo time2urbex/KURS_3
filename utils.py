@@ -55,7 +55,7 @@ def search_for_posts(query: str) -> list[dict]:
 def get_post_by_pk(pk: str) -> list[dict]:
     id_search_result = []
     for posts in get_posts_all():
-        if pk.lower() in posts['pk'].lower():
+        if username.lower() in posts['poster_name'].lower():
             id_search_result.append(posts)
     return id_search_result
 

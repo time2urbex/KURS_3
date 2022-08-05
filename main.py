@@ -44,10 +44,14 @@ def main_page():
         return render_template('/templates/search.html', query=search_query, posts=posts)
 
 
+@main_blueprint.route('/users/<username>')
+    for posts in get_posts_all():
+        if username.lower() in posts['pk'].lower():
+            def get_posts_by_user()
 
 
 """
-@main_blueprint.route('/search/')
+
 def search_page():
     search_query = request.args.get('s', '')
     logging.info('Выполняю поиск')
